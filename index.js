@@ -30,7 +30,7 @@ main = () => {
                     break;
                 case 'v': {
 
-                    const input = await question([{ name: 'filePath' }])
+                    const input = await question([{ name: 'filePath' , description: 'What is the path to the file (for example ./test.txt)'}])
                     const contents = await readFile(input.filePath, 'utf-8')
                     console.log(contents);
                     run()
@@ -38,7 +38,7 @@ main = () => {
                 }
                 case 'w': {
 
-                    const input = await question([{ name: 'filePath' }, { name: 'contents', description: 'Write the contents' }])
+                    const input = await question([{ name: 'filePath', description: 'What is the path to the file (for example ./test.txt)' }, { name: 'contents', description: 'Enter the content' }])
                     await writeFile(input.filePath, input.contents)
                     console.log('Operation completed!');
                     run()
